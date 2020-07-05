@@ -1,37 +1,39 @@
-﻿namespace ds.test.impl
+﻿using System.Drawing;
+
+namespace ds.test.impl
 {
     /// <summary>
-    /// Базовый интерфейс для плагинов
+    /// Абстрактный класс, реализующий часть интерфейса IPlugin
     /// </summary>
-    public interface IPlugin
+    internal abstract class AbstractPlugin : IPlugin
     {
         /// <summary>
         /// Название плагина
         /// </summary>
-        string PluginName { get; }
+        public string PluginName { get; }
 
         /// <summary>
         /// Версия плагина
         /// </summary>
-        string Version { get; }
+        public string Version { get; }
 
         /// <summary>
         /// Изображение плагина
         /// </summary>
-        System.Drawing.Image Image { get; }
+        public Image Image { get; }
 
         /// <summary>
         /// Описание плагина
         /// </summary>
-        string Description { get; }
+        public string Description { get; }
 
         /// <summary>
         /// Метод для реализации различных математических операций
-        /// Для каждого наследуемого класса переопределяется своя реализация
+        /// Для каждого наследуемого класса необходимо переопределить данный метод
         /// </summary>
         /// <param name="input1">Аргумент 1</param>
         /// <param name="input2">Аргумент 2</param>
         /// <returns>Результат вычисления</returns>
-        int Run(int input1, int input2);
+        public abstract int Run(int input1, int input2);
     }
 }
